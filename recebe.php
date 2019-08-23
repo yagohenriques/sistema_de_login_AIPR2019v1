@@ -4,10 +4,9 @@
 require_once "configDB.php";
 
 
-function verificar_entrada($entrada)
-{
-    $saida = trim($entrada); //Remova espaços antes e depois
-    $saida = stripslashes($saida); //remove as barras
+function verificar_entrada($entrada){
+    $saida = trim($entrada);
+    $saida = stripslashes($saida); 
     $saida = htmlspecialchars($saida);
     return $saida;
 }
