@@ -175,7 +175,11 @@
                         data: $('#formLogin').serialize() + '&action=login',
                         success: function(resposta) {
                             $('#alerta').show();
-                            $('#resultado').html("resposta:" + resposta);
+                            $('#resultado').html(resposta);
+                            if(resposta == "ok"){
+                                window.location = "profile.php";
+                            }
+                            
                         }
                     });
                 }
