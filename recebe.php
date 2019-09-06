@@ -45,8 +45,9 @@ if (
         $emailUsuario = verificar_entrada($_POST['emailUsuário']);
         $senhaUsuario = verificar_entrada($_POST['senhaUsuário']);
         $senhaConfirma = verificar_entrada($_POST['senhaConfirma']);
+        $imagem = verificar_entrada($_POST['imagem']);
         $concordar = $_POST['concordar'];
-        $dataCriacao = date("Y-m-d H:i:s");
+        $dataCriacao = date("y-m-d H:i:s");
 
 
         $senha = sha1($senhaUsuario);
@@ -70,8 +71,8 @@ if (
             }elseif ($linha['email'] == $emailUsuario){
                 echo "<p>E-mail já em uso, tente outro</p>";
             }else{
-                $sql = $conecta->prepare("INSERT into usuario (nome, nomeUsuario, email, senha, dataCriacao) values(?, ?, ?, ?, ?)");
-                $sql->bind_param("sssss",$nomeCompleto, $nomeUsuario, $emailUsuario, $senha, $dataCriacao);
+                $sql = $conecta->prepare("INSERT into usuario (nome, nomeUsuario, email, senha, dataCriacao, imagem) values(?, ?, ?, ?, ?, ?)");
+                $sql->bind_param("ssssss",$nomeCompleto, $nomeUsuario, $emailUsuario, $senha, $dataCriacao, $imagem);
                 if($sql->execute()){
                     echo "<p>Registrado com sucesso</p>";
                 }else{

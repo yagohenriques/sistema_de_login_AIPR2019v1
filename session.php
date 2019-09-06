@@ -15,7 +15,11 @@ if (isset($_SESSION['nomeUsuario'])) {
 
     $nome = $linha['nome'];
     $email = $linha['email'];
-    $dataCriacao = $linha['dataCriacao'];
+    $d = $linha['dataCriacao'];
+    $d = new datetime($d);
+    $dataCriacao = $d->format('d/m/Y H:i:s');
+    $imagem = $linha['imagem'];
+
 } else {
     //Kick
     header("location: index.php");

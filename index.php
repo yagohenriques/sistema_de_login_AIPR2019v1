@@ -1,8 +1,8 @@
 <?php
-    session_start();
-    if(isset($_SESSION['nomeUsuario']))
-        //Bloqueando usuários logados
-        header("location: presile.php");
+session_start();
+if (isset($_SESSION['nomeUsuario']))
+    //Bloqueando usuários logados
+    header("location: profile.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -113,6 +113,10 @@
                         </div>
                     </div>
 
+                    <div>
+                        <input type="text" name="imagem" id="imagem" class="form-control" placeholder="URL da imagem" required>
+                    </div>
+
                     <div class="form-group">
                         <input type="submit" value=":: Cadastrar ::" class="btn btn-primary btn-block" id="btnRegistrar">
                     </div>
@@ -182,10 +186,10 @@
                         success: function(resposta) {
                             $('#alerta').show();
                             $('#resultado').html(resposta);
-                            if(resposta === "ok"){
+                            if (resposta === "ok") {
                                 window.location = "profile.php";
                             }
-                            
+
                         }
                     });
                 }

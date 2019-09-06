@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23-Ago-2019 às 14:15
+-- Tempo de geração: 06-Set-2019 às 16:45
 -- Versão do servidor: 10.3.16-MariaDB
 -- versão do PHP: 7.3.7
 
@@ -30,19 +30,25 @@ USE `sistemadelogin`;
 --
 -- Estrutura da tabela `usuario`
 --
--- Criação: 23-Ago-2019 às 17:09
--- Última actualização: 23-Ago-2019 às 17:09
---
 
-DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE `usuario` (
   `idUsuario` int(10) UNSIGNED NOT NULL,
   `nome` varchar(100) COLLATE utf8mb4_bin NOT NULL,
   `nomeUsuario` varchar(100) COLLATE utf8mb4_bin NOT NULL,
   `email` varchar(100) COLLATE utf8mb4_bin NOT NULL,
   `senha` char(40) COLLATE utf8mb4_bin NOT NULL,
-  `dataCriacao` datetime NOT NULL
+  `dataCriacao` datetime NOT NULL,
+  `imagem` varchar(200) COLLATE utf8mb4_bin NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+--
+-- Extraindo dados da tabela `usuario`
+--
+
+INSERT INTO `usuario` (`idUsuario`, `nome`, `nomeUsuario`, `email`, `senha`, `dataCriacao`, `imagem`) VALUES
+(1, 'ninja', 'ninja', 'yago@gmail', '7c4a8d09ca3762af61e59520943dc26494f8941b', '2019-09-06 13:53:37', ''),
+(2, 'ninja', 'patric', 'fd@gmail', '7c4a8d09ca3762af61e59520943dc26494f8941b', '2019-09-06 14:48:13', 'https://vignette.wikia.nocookie.net/cswikia/images/5/5b/Sas-0.jpg/revision/latest?cb=20161214211219'),
+(3, 'yagog', 'yagoddd', 'hyagohenrique@gm', '7c4a8d09ca3762af61e59520943dc26494f8941b', '2019-09-06 16:40:14', 'https://img.ibxk.com.br/2018/08/09/09175156740233.jpg');
 
 --
 -- Índices para tabelas despejadas
@@ -63,7 +69,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idUsuario` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `idUsuario` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

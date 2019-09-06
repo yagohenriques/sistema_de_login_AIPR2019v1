@@ -12,7 +12,6 @@ require_once 'session.php'
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
     <title>Perfil de <?= $usuario ?></title>
 </head>
 
@@ -48,11 +47,23 @@ require_once 'session.php'
         </div>
     </nav>
 
+
     <main class="container mt-4">
-        <h1 class="text-light">Perfil de Usuário</h1>
-        <h2 class="text-light">Nome <?= $nome ?></h2>
-        <h2 class="text-light">E-mail <?= $email ?></h2>
-        <h2 class="text-light">Data de Cadastro: <?= $dataCriacao ?></h2>
+        </div>>
+        <div class="row no-gutters">
+            <div class="col-6 col-md-4">
+                <div id="imagem">
+                    <img src=" <?= $imagem ?> " style="width:200px; height:200px; ">
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-8">
+                <h1 class="text-light">Perfil De Usuario</h1>
+                <h2 class="text-light">Nome:<?= $nome ?></h2>
+                <h2 class="text-light">E-mail:<?= $email ?></h2>
+                <h2 class="text-light">Data de Cadastro: <?= $dataCriacao ?></h2>
+            </div>
+    </main>
+
     </main>
 
     <!-- Opcional JavaScript  -->
@@ -61,6 +72,7 @@ require_once 'session.php'
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
 </body>
 
 </html>
