@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 06-Set-2019 às 16:45
+-- Tempo de geração: 12-Set-2019 às 16:36
 -- Versão do servidor: 10.3.16-MariaDB
 -- versão do PHP: 7.3.7
 
@@ -38,17 +38,20 @@ CREATE TABLE `usuario` (
   `email` varchar(100) COLLATE utf8mb4_bin NOT NULL,
   `senha` char(40) COLLATE utf8mb4_bin NOT NULL,
   `dataCriacao` datetime NOT NULL,
-  `imagem` varchar(200) COLLATE utf8mb4_bin NOT NULL
+  `imagem` varchar(200) COLLATE utf8mb4_bin NOT NULL,
+  `token` char(10) COLLATE utf8mb4_bin NOT NULL,
+  `tempo_de_vida` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Extraindo dados da tabela `usuario`
 --
 
-INSERT INTO `usuario` (`idUsuario`, `nome`, `nomeUsuario`, `email`, `senha`, `dataCriacao`, `imagem`) VALUES
-(1, 'ninja', 'ninja', 'yago@gmail', '7c4a8d09ca3762af61e59520943dc26494f8941b', '2019-09-06 13:53:37', ''),
-(2, 'ninja', 'patric', 'fd@gmail', '7c4a8d09ca3762af61e59520943dc26494f8941b', '2019-09-06 14:48:13', 'https://vignette.wikia.nocookie.net/cswikia/images/5/5b/Sas-0.jpg/revision/latest?cb=20161214211219'),
-(3, 'yagog', 'yagoddd', 'hyagohenrique@gm', '7c4a8d09ca3762af61e59520943dc26494f8941b', '2019-09-06 16:40:14', 'https://img.ibxk.com.br/2018/08/09/09175156740233.jpg');
+INSERT INTO `usuario` (`idUsuario`, `nome`, `nomeUsuario`, `email`, `senha`, `dataCriacao`, `imagem`, `token`, `tempo_de_vida`) VALUES
+(1, 'ninja', 'ninja', 'yago@gmail', '7c4a8d09ca3762af61e59520943dc26494f8941b', '2019-09-06 13:53:37', '', '', '2019-09-12 19:32:45'),
+(2, 'ninja', 'patric', 'fd@gmail', '7c4a8d09ca3762af61e59520943dc26494f8941b', '2019-09-06 14:48:13', 'https://vignette.wikia.nocookie.net/cswikia/images/5/5b/Sas-0.jpg/revision/latest?cb=20161214211219', '', '2019-09-12 19:32:45'),
+(3, 'yagog', 'yagoddd', 'hyagohenrique@gm', '7c4a8d09ca3762af61e59520943dc26494f8941b', '2019-09-06 16:40:14', 'https://img.ibxk.com.br/2018/08/09/09175156740233.jpg', '', '2019-09-12 19:32:45'),
+(4, 'yagoh', 'hyagoh', '123@gmail', '7c4a8d09ca3762af61e59520943dc26494f8941b', '2019-09-12 13:20:48', 'https://uploads.mixer.com/avatar/2evg7cnb-101052282.jpg', '', '2019-09-12 19:32:45');
 
 --
 -- Índices para tabelas despejadas
@@ -69,7 +72,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idUsuario` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idUsuario` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
