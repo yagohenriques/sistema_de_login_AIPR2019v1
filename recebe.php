@@ -12,8 +12,29 @@ function verificar_entrada($entrada)
     $saida = htmlspecialchars($saida);
     return $saida;
 }
-
 if (
+    isset($_POST['action']) &&
+    $_POST['action'] == 'senha'){
+        //Apenas para Debung / Teste
+        //echo "<strong>Recuperação de Senha</strong>";
+        $emailSenha = verificar_entrada($_POST['emailSenha']);
+        $sql = $conecta->prepare("SELECT idUsuario FROM usuario WHERE email = ?");
+        $sql->bind_param("s", $emailSenha);
+        $sql->execute();
+        $resultado = $sql->get_result();
+        if($resultado->num_rows > 0){
+            //Existe o usuário no Banco de Dados
+            //Só para testar/ debug
+            //echo "<p class=\"text-success\">E-mail encontrado</p>";
+            $frase = "BatAtinh4Quando!@#$%NascexexeEsparr4ma4PeloChao&*";
+            $frase_secreta = str_shuffle($frase);
+            $token = substr($frase_secreta,0,10);
+            echo "<p>$token</p>";
+        }else{
+            echo '<p class="text-danger">E-mail não encontrado</p>';
+        }
+
+}else if (
     isset($_POST['action']) &&
     $_POST['action'] == 'login') {
     //Verificação e Login do usúario
